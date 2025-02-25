@@ -1,3 +1,6 @@
+'''
+Uses Gaussian and Laplacian pyramids to blend two images
+'''
 import numpy as np, matplotlib as mpl, matplotlib.pyplot as plt, os
 import imageio # For loading images
 from abc import update_abstractmethods

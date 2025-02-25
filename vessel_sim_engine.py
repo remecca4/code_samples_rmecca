@@ -1,3 +1,6 @@
+'''
+Simplified version of vessel simulation engine to allow the mission planner to run
+'''
 from datetime import datetime
 
 

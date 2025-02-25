@@ -1,1 +1,5 @@
-# code_samples_rmecca
+This repository contains samples of code I have written for research, coursework, and personal projects.
+
+blend_images.py: Code I wrote for my Computer Vision class during the Winter 2025 semester. It uses Gaussian and Laplacian pyramids to seamlessly blend two images.
+
+mission_planner.py: : Code I wrote for my research project in the Department of Naval Architecture and Marine Engineering. This algorithm determines the optimal mission for a vessel by maximizing waypoint priority scores while minimizing fuel consumption. It evaluates all possible waypoint combinations, ranks them based on total priority score, and applies a branch-and-bound algorithm to find the shortest path. The algorithm terminates early once it finds a mission that satisfies the fuel constraints. It relies on tsp_solver.py and vessel_sim_engine.py.

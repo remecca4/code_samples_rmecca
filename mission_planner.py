@@ -1,19 +1,16 @@
 '''
 Direct solution for optimal vessel mission planning (<=12 waypoints)
 
-Authors: Rachel Mecca
+Author: Rachel Mecca
 
 (c) 2024 Regents of the University of Michigan
 
 '''
 from datetime import datetime
-import netCDF4 as nc
 import numpy as np
 from vessel_sim_engine import Waypoint, Destination, Mission, vesselFuel
 from geographiclib.geodesic import Geodesic
 from itertools import combinations
-from cProfile import Profile
-from pstats import SortKey, Stats
 from tsp_solver import tsp_solver
 geod = Geodesic.WGS84
 maxsize = float('inf')
@@ -199,14 +196,8 @@ if __name__ == '__main__':
         print((d.waypoint.lat, d.waypoint.long))
    vessel=vesselFuel("Ship", (48, -170),(48,-170), mission3, 100, 1)
    planner = missionPlanner(vessel,datetime(2018, 1, 1, 0, 0),"/home/remecca/core/Ocean/NOAA_NorthAtlantic.nc")
-   with Profile() as profile:
-      best_mission=planner.plan_mission()
-      (
-          Stats(profile)
-         .strip_dirs()
-         .sort_stats(SortKey.CALLS)
-         .print_stats()
-      )
+   best_mission=planner.plan_mission()
+     
    print("Optimal Mission")
    for d in best_mission.destinations:
        print((d.waypoint.lat, d.waypoint.long))
